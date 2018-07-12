@@ -6,6 +6,12 @@
 
 ![cap](cap.gif)
 
+## setup
+
+```
+$ npm install
+```
+
 ## command
 
 build mode=development
