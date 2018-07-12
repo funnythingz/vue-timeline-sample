@@ -4,7 +4,7 @@
   button(@click="post()")
     | post
   .list-group
-    .list-item(v-for="t in tweetList")
+    .list-item(v-for="t in timeline")
       | {{t}}
 </template>
 
@@ -12,24 +12,23 @@
 </style>
 
 <script>
-import { reverse } from 'lodash'
-
 export default {
   data() {
     return {
       tweet: '',
-      tweetList: []
+      tweetList: [],
+      timeline: []
     }
   },
   methods: {
     post() {
       this.tweetList.push(this.tweet)
-      this.tweetList = reverse(this.tweetList)
+      this.timeline = (this.tweetList.slice()).reverse()
       this.clear()
     },
     clear() {
       this.tweet = ''
-    },
+    }
   }
 }
 </script>
